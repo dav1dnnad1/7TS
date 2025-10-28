@@ -95,7 +95,8 @@ function initForm() {
   const bookingForm = document.getElementById("booking-form");
   if (!bookingForm) return;
 
-  const response = document.getElementById("form-response");
+const response = document.getElementById("bookingResponse");
+
 
   bookingForm.addEventListener("submit", function (e) {
     e.preventDefault();

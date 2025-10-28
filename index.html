@@ -43,7 +43,7 @@
         <p class="hero-sub">Pixel-perfect builds, halftone textures, and smooth animations — premium frontend & web apps.</p>
         <div class="hero-cta">
           <a class="btn primary" href="#portfolio">See Portfolio</a>
-          <a class="btn ghost" href="#services">Services & Pricing</a>
+          <a class="btn ghost" href="#services">Services</a>
         </div>
       </div>
     </section>
@@ -137,9 +137,10 @@
             <div class="booking-actions">
               <button type="submit" class="btn primary">Request Booking</button>
               <!-- WhatsApp quick message -->
-              <a id="https://wa.me/447736312530?text=Hi%20I%27d%20like%20to%20book%20a%20service%20with%207Tech%20Solutions.
-              " class="btn ghost" href="https://wa.me/447736312530?text=Hi%20I%27d%20like%20to%20book%20a%20service%20with%207Tech%20Solutions.
-              " target="_blank" rel="noopener">Message on WhatsApp</a>
+              <a class="btn ghost" href="https://wa.me/447736312530?text=Hi%20I'd%20like%20to%20book%20a%20service%20with%207Tech%20Solutions." target="_blank" rel="noopener">
+  Message on WhatsApp
+</a>
+
             </div>
             <div id="bookingResponse" class="form-response" aria-live="polite"></div>
           </form>
@@ -157,10 +158,10 @@
           <div class="carousel-viewport">
             <div class="carousel-track" id="carouselTrack">
               <!-- Use your real screenshots here -->
-              <figure class="slide"><img src="images/Capture.PNG" alt="Site 1"><figcaption>Fintech Dashboard</figcaption></figure>
-              <figure class="slide"><img src="images/scope files landing page.PNG" alt="Site 2"><figcaption>Salon Booking</figcaption></figure>
-              <figure class="slide"><img src="images/savor naija.PNG" alt="Site 3"><figcaption>Lottery App UI</figcaption></figure>
-              <figure class="slide"><img src="images/barbing salon.PNG" alt="Site 4"><figcaption>Local Game UI</figcaption></figure>
+              <figure class="slide"><img src="images/Capture.PNG" alt="Site 1"><figcaption>Salon Booking</figcaption></figure>
+              <figure class="slide"><img src="images/scope files landing page.PNG" alt="Site 2"><figcaption>Photography Website</figcaption></figure>
+              <figure class="slide"><img src="images/savor naija.PNG" alt="Site 3"><figcaption>Restaurant</figcaption></figure>
+              <figure class="slide"><img src="images/barbing salon.PNG" alt="Site 4"><figcaption>BArbing Salon </figcaption></figure>
             </div>
           </div>
           <button class="carousel-btn next" aria-label="Next">❯</button>
@@ -190,5 +191,37 @@
   </footer>
 
   <script src="script.js" defer></script>
+  <!-- EmailJS -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("vJNU29mgwPZ4Tihcb"); // Your Public Key
+  })();
+
+  // Listen for form submission
+  document.getElementById('booking-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Optional: Show loading text
+    const responseMsg = document.getElementById('bookingResponse');
+    responseMsg.textContent = "Sending message...";
+    responseMsg.style.color = "#888";
+
+    // Send email using EmailJS
+    emailjs.sendForm("service_4zokc5o", "template_r1bmqom", this)
+      .then(function() {
+        responseMsg.textContent = "Booking request sent successfully!";
+        responseMsg.style.color = "green";
+        document.getElementById('booking-form').reset();
+      }, function(error) {
+        console.error("FAILED...", error);
+        responseMsg.textContent = "Error sending request. Please try again later.";
+        responseMsg.style.color = "red";
+      });
+  });
+</script>
+
+
 </body>
 </html>

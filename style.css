@@ -258,23 +258,22 @@ body {
 }
 
 .carousel-viewport {
-  overflow: hidden;
-  flex: 1;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 .carousel-track {
   display: flex;
   gap: 12px;
   will-change: transform;
+  scroll-snap-align: start;
 }
 
 .slide {
-  min-width: 100%;
-  flex: 0 0 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  min-width: 90%;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
 }
 
 .slide img {
