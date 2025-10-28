@@ -254,6 +254,7 @@ body {
   margin-top: 28px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -261,54 +262,65 @@ body {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
 }
 
 .carousel-track {
   display: flex;
-  gap: 12px;
+  gap: 18px;
   will-change: transform;
-  scroll-snap-align: start;
 }
 
 .slide {
-  min-width: 90%;
   flex: 0 0 auto;
-  scroll-snap-align: start;
+  width: clamp(250px, 70vw, 400px); /* Responsive width */
+  scroll-snap-align: center;
+  text-align: center;
 }
 
 .slide img {
   width: 100%;
   height: auto;
+  max-height: 380px; /* Limit height for desktop */
+  object-fit: cover;
+  border-radius: 10px;
   border: 2px solid rgba(0, 0, 0, 0.06);
   display: block;
-  border-radius: 6px;
-  transition: transform 0.4s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .slide img:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
 .slide figcaption {
   margin-top: 10px;
+  font-size: 0.9rem;
   color: var(--muted);
 }
 
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  border: 0;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 30;
+/* Smaller devices */
+@media (max-width: 768px) {
+  .slide {
+    width: 85vw;
+  }
+
+  .slide img {
+    max-height: 260px;
+  }
 }
 
-.carousel-btn.prev { left: 8px; }
-.carousel-btn.next { right: 8px; }
+/* Very small phones */
+@media (max-width: 480px) {
+  .slide {
+    width: 90vw;
+  }
+
+  .slide img {
+    max-height: 220px;
+  }
+}
 
 /* LIGHTBOX */
 .lightbox {
