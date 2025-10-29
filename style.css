@@ -168,6 +168,29 @@ body {
 }
 
 /* SERVICES GRID */
+/* ---------- Value for UK Clients ---------- */
+.value-uk {
+  text-align: center;
+  padding: 80px 20px;
+  background: #0d0d0d;
+  color: #f8f8f8;
+  animation: fadeSlideUp 1.2s ease forwards;
+}
+
+.value-uk-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.value-uk-container p {
+  font-size: 1.2rem;
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #cccccc;
+  animation: fadeSlideUp 1.4s ease forwards;
+}
 .services-grid {
   display: grid;
   gap: 20px;
@@ -354,6 +377,75 @@ body {
 .lb-caption {
   color: #ddd;
   margin-top: 12px;
+}
+.results {
+  padding: 80px 20px;
+  background: #111;
+  color: #fff;
+  text-align: center;
+  animation: fadeSlideUp 1.2s ease forwards;
+}
+
+.results h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: slideIn 1.5s ease-in-out;
+}
+
+.result-card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 30px 20px;
+  transition: all 0.4s ease;
+}
+
+.result-card:hover {
+  transform: translateY(-10px);
+  background: #222;
+  border-color: #555;
+}
+
+.result-card h3 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.result-card p {
+  color: #b5b5b5;
+  font-size: 1rem;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* FADE ANIMATIONS */
